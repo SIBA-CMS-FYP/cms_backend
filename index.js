@@ -16,39 +16,10 @@ const port=process.env.PORT;
 
 const getUserRoute=require('./routes/getUsers')
 const getCourseRoute=require('./routes/getCourse')
+const getStudentRoute=require('./routes/profile')
 app.use('/getUsers',getUserRoute)
 app.use('/getCourse',getCourseRoute)
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'cms_database'
-//   })
-  
-
-// connection.connect()
-
-// app.get('/getUsers',(req, res)=>{
-
-//     connection.connect((error)=>{
-//         if(!error){
-//             connection.query('SELECT * from authentication',(error, row, col)=>{
-//                 if(error){
-//                     console.log(error)
-//                 }
-//                 else{
-//                     res.send(JSON.stringify(row))
-//                 }
-//             })        
-//         }
-//         else{
-//             console.log(error)
-//         }
-//     })
-
-// })
-  
-
+app.use('/getSudent',getStudentRoute)
 app.listen(port,()=>{
     console.log(`Server is running at ${port}`)
 })
