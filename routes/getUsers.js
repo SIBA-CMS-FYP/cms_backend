@@ -12,7 +12,7 @@ route.get('/', (req , res)=>{
             return res.send("ERROR OCCURED")
 
         res.send(JSON.stringify({row}))
-    })        
+    })         
     })    
 })
 
