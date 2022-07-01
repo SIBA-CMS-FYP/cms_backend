@@ -17,9 +17,11 @@ const port=process.env.PORT;
 const getUserRoute=require('./routes/getUsers')
 const getCourseRoute=require('./routes/getCourse')
 const getStudentRoute=require('./routes/profile')
-app.use('/getUsers',getUserRoute)
-app.use('/getCourse',getCourseRoute)
-app.use('/getSudent',getStudentRoute)
+const getDepartmentRoute=require('./routes/getDepartment')
+app.use('/getUsers',getUserRoute);
+app.use('/getCourse',getCourseRoute);
+app.use('/getstudent',getStudentRoute);
+app.use('/getDepartment',getDepartmentRoute);
 app.listen(port,()=>{
     console.log(`Server is running at ${port}`)
 })

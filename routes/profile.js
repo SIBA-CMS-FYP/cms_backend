@@ -7,7 +7,7 @@ route.get('/', (req , res)=>{
         if(err){
             return console.log("ERROR "+err.message)
         }
-        con.query("SELECT * FROM student",(error, row, column)=>{
+        con.query("Select * FROM student",(error, row, column)=>{
      if(error)
             return res.send("ERROR OCCURED")
 
