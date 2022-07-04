@@ -14,14 +14,22 @@ const port=process.env.PORT;
 // const user=process.env.USER;
 
 
-const getUserRoute=require('./routes/getUsers')
+const getUserRoute=require('./routes/authentications')
 const getCourseRoute=require('./routes/getCourse')
 const getStudentRoute=require('./routes/profile')
-const getDepartmentRoute=require('./routes/getDepartment')
-app.use('/getUsers',getUserRoute);
+const getDepartmentRoute=require('./routes/getTerms')
+const getAttendanceRoute=require('./routes/getAttendance')
+const getFinanceRoute=require('./routes/finance')
+const getTeacherAuthRoute=require('./routes/teacher_authentications')
+const insertWithdrawRoute=require('./routes/withdrawCourse')
+app.use('/Users',getUserRoute);
 app.use('/getCourse',getCourseRoute);
 app.use('/getstudent',getStudentRoute);
-app.use('/getDepartment',getDepartmentRoute);
+app.use('/terms',getDepartmentRoute);
+app.use('/attendance',getAttendanceRoute)
+app.use('/user',getFinanceRoute)
+app.use('/teacher',getTeacherAuthRoute);
+app.use('/withdraw',insertWithdrawRoute);
 app.listen(port,()=>{
     console.log(`Server is running at ${port}`)
 })

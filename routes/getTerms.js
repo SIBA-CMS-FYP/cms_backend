@@ -1,12 +1,13 @@
 const express=require('express')
 const route=express.Router()
 const con=require('./connection')
-route.get('/',(req,res)=>{
+route.get('/getTerms',(req,res)=>{
+    var cms=req.query.cms;
     con.connect(function(err){
         if(err){
             return console.log("ERROR"+err.message)
         }
-        con.query("SELECT * FROM department",(error,row,column)=>{
+        con.query("Select CONCAT(season,year) from student_enroll Where cms=?;",[cms],(error,row,column)=>{
             if(error){
                 return res.send("ERROR OCCURED")
             }
