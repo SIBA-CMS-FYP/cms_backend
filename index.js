@@ -22,14 +22,18 @@ const getAttendanceRoute=require('./routes/getAttendance')
 const getFinanceRoute=require('./routes/finance')
 const getTeacherAuthRoute=require('./routes/teacher_authentications')
 const insertWithdrawRoute=require('./routes/withdrawCourse')
+const checkWithdrawStatusRoute=require('./routes/withdrawStatus');
+const getWithdrawRequestRoute=require('./routes/teacherGetWithdrawRequest');
 app.use('/Users',getUserRoute);
 app.use('/getCourse',getCourseRoute);
 app.use('/getstudent',getStudentRoute);
 app.use('/terms',getDepartmentRoute);
 app.use('/attendance',getAttendanceRoute)
-app.use('/user',getFinanceRoute)
+app.use('/user',getFinanceRoute);
 app.use('/teacher',getTeacherAuthRoute);
 app.use('/withdraw',insertWithdrawRoute);
+app.use('/withdraw',checkWithdrawStatusRoute);
+app.use('/getWithdraw',getWithdrawRequestRoute);
 app.listen(port,()=>{
     console.log(`Server is running at ${port}`)
 })
