@@ -3,7 +3,7 @@ const express=require('express')
 const route=express.Router()
 const con=require('./connection')   
 
-route.get('/withdrawStatus', (req , res)=>{
+route.get('/getResult', (req , res)=>{
     var cms=req.query.cms;
     var enroll_id=req.query.enroll_id;
     console.log(cms)
@@ -11,7 +11,7 @@ route.get('/withdrawStatus', (req , res)=>{
         if(err){
             return console.log("ERROR "+err.message)
         }
-        con.query("SELECT Status FROM withdraw WHERE cms=? AND enroll_id=?;",[cms,enroll_id],(error, row, column)=>{
+        con.query("SELECT courses.course_title as Course,result.firstMid,result.secondMid,result.sessional,result.final,result.GPA,result.CGPA FROM result JOIN courses ON result.course_id=courses.course_id WHERE result.cms=? AND result.enroll_id=?;",[cms,enroll_id],(error, row, column)=>{
      if(error)
             return res.send("ERROR OCCURED")
             
