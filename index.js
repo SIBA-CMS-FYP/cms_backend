@@ -27,7 +27,7 @@ const getWithdrawRequestRoute=require('./routes/teacherGetWithdrawRequest');
 const withdrawResposeByTeach=require('./routes/withdrawRespose');
 const getResult=require('./routes/result');
 
-app.use('/Users',getUserRoute);
+app.use('/authentication',getUserRoute);
 app.use('/getCourse',getCourseRoute);
 app.use('/getstudent',getStudentRoute);
 app.use('/terms',getDepartmentRoute);
@@ -38,7 +38,7 @@ app.use('/withdraw',insertWithdrawRoute);
 app.use('/withdraw',checkWithdrawStatusRoute);
 app.use('/getWithdraw',getWithdrawRequestRoute);
 app.use('/withdraw',withdrawResposeByTeach);
-app.use('/result',getResult);z
+app.use('/result',getResult);
 app.listen(port,()=>{
     console.log(`Server is running at ${port}`)
 })
