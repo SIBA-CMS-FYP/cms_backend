@@ -1,5 +1,6 @@
 
-const express=require('express')
+const express=require('express');
+const { end } = require('./connection');
 const route=express.Router()
 const con=require('./connection') 
 
@@ -7,17 +8,12 @@ route.post("/login", (req , res)=>{
     var cms=req.body.cms;
     var password=req.body.password;
     con.connect(function(err){
-        if(err){
-            console.log("ERROR "+err.message)
-            return;
-        }
         con.query("SELECT * FROM authentication WHERE cms=? AND password=?;",[cms,password],(error, row, column)=>{
-      if(error)
-            return res.send("ERROR OCCURED")
+           if(error) console.log("ERROR OCCURED");
+           res.send(JSON.stringify({succes:true,message:column}))
+    });         
+    });
 
-        res.send(JSON.stringify({succes:true,message:column}))
-    })         
-    })    
 })
 
 
