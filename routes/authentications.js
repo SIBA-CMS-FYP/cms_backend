@@ -12,10 +12,10 @@ route.post("/login", (req , res)=>{
             return;
         }
         con.query("SELECT * FROM authentication WHERE cms=? AND password=?;",[cms,password],(error, row, column)=>{
-      if(error)
+        if(error)
             return res.send("ERROR OCCURED")
 
-        res.send(JSON.stringify({succes:true,message:column}))
+        res.send(JSON.stringify({succes:true,message:row}))
     })         
     })    
 })
