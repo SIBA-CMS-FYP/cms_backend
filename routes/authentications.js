@@ -5,7 +5,6 @@ const route=express.Router()
 const con=require('./connection') 
 
 route.post("/login", (req , res)=>{
-
     var cms=req.query.cms || req.body.cms || req.params.cms;
     var password=req.query.password || req.body.password || req.params.password;
     // console.log(cms, password)
@@ -24,8 +23,4 @@ route.post("/login", (req , res)=>{
 
     });         
     });
-
-// })
-
-
 module.exports=route

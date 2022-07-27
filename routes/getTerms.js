@@ -7,7 +7,7 @@ route.get('/getTerms',(req,res)=>{
             if(error){
                 return res.send("ERROR OCCURED")
             }
-            res.send(JSON.stringify({row}))
+            res.send(JSON.stringify({column}))
         })
     })
 module.exports=route
