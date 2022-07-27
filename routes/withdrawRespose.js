@@ -8,10 +8,10 @@ route.post('/withdrawResponse', (req , res)=>{
     var course_id=req.query.course_id;
     var withdrawStatus=req.query.withdrawStatus
     console.log(cms)
-    con.connect(function(err){
-        if(err){
-            return console.log("ERROR "+err.message)
-        }
+    // con.connect(function(err){
+    //     if(err){
+    //         return console.log("ERROR "+err.message)
+    //     }
         con.query("Update Withdraw SET Status=? WHERE cms=? AND course_id=?;",[withdrawStatus,cms,course_id],(error, row, column)=>{
      if(error)
             return res.send("ERROR OCCURED")
@@ -20,7 +20,7 @@ route.post('/withdrawResponse', (req , res)=>{
          res.send(JSON.stringify({row}))
     })         
     })    
-})
+// })
 
 
 module.exports=route
