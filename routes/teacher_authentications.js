@@ -4,9 +4,9 @@ const route = express.Router()
 const con = require('./connection')
 
 route.post("/techerlogin", (req, res) => {
-    var teacher_id = req.query.teacher_id;
-    var password = req.query.password;
-
+    var teacher_id =req.body.teacher_id;
+    var password = req.body.password;
+    console.log("teacher CMS "+teacher_id+" Password "+password)
     // con.connect(function(err){
     //     if(err){
     //         console.log("ERROR "+err.message)
@@ -19,10 +19,10 @@ route.post("/techerlogin", (req, res) => {
         console.log(row[0]);
 
         if (row.length > 0) {
-            res.send({ success: true, data: row[0], message: 'Loggedin successfully' })
+            res.send(true)
         }
         else {
-            res.send({ success: false, message: 'Invalid credentials' })
+            res.send(false)
         }
     })
 })
