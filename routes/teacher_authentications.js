@@ -19,10 +19,10 @@ route.post("/techerlogin", (req, res) => {
         console.log(row[0]);
 
         if (row.length > 0) {
-            res.send(true)
+            res.send({success:true,message:"login Successfull"})
         }
         else {
-            res.send(false)
+            res.send({success:false,message:"Invalide credential"})
         }
     })
 })
