@@ -7,8 +7,7 @@ const con=require('./connection')
 route.post("/login", (req , res)=>{
     var cms=req.query.cms || req.body.cms || req.params.cms;
     var password=req.query.password || req.body.password || req.params.password;
-    // console.log(cms, password)
-    // con.connect(function(err){
+
         con.query("SELECT * FROM authentication WHERE cms=? AND password=?;",[cms,password],(error, row,column)=>{
            if(error) 
              console.log("ERROR OCCURED");
