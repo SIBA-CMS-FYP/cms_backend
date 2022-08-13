@@ -19,21 +19,27 @@ route.post("/techerlogin", (req, res) => {
         }
     })
 })
-route.post("/hodLogin", (req, res) => {
-    var hodcms =req.body.hodCMS;
-    var password = req.body.hodpassword;
-    console.log("Hod CMS "+hodcms+" Password "+password)
+
+route.post("/hodlogin", (req, res) => {
+    var hodcms =req.body.hodcms;
+    var password = req.body.password;
+    console.log("hod CMS "+ hodcms+" Password "+password)
     con.query("SELECT * FROM hod_authentication WHERE hodcms=? AND password=?;", [hodcms, password], (error, row, column) => {
+
         if (error)
-            console.log("ERROR OCCURED"+error.message);
-         console.log(row[0]);
+            console.log("ERROR OCCURED");
+        console.log(row[0]);
+
+
         if (row.length > 0) {
             res.send({success:true,message:"login Successfull"})
         }
         else {
-            res.send({success:false,message:"Invalide credential"})
+
+            res.send({success:false,message:"Invalid credential"})
         }
     })
 })
+
 
 module.exports = route

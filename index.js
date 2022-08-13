@@ -41,6 +41,6 @@ app.use('/getWithdraw',getWithdrawRequestRoute);
 app.use('/withdraw',withdrawResposeByTeach);
 app.use('/result',getResult);
 app.use('/getCurrent',getCurrentSemester)
-app.listen(port,()=>{
-    console.log(`Server is running at ${port}`)
+app.listen(3000,()=>{
+    console.log(`Server is running at ${3000}`)
 })
