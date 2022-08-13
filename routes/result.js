@@ -13,7 +13,7 @@ route.get('/getResult', (req , res)=>{
          res.send(JSON.stringify({row}))
     })         
     })    
-// })
+
 
 
 module.exports=route
