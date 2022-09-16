@@ -10,7 +10,7 @@ route.post("/techerlogin", (req, res) => {
     con.query("SELECT * FROM techer_auth WHERE teacher_id=? AND password=?;", [teacher_id, password], (error, row, column) => {
         if (error)
             console.log("ERROR OCCURED");
-        console.log(row[0]);
+       
         if (row.length > 0) {
             res.send({success:true,message:"login Successfull"})
         }

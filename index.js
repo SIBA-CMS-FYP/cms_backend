@@ -27,6 +27,7 @@ const getWithdrawRequestRoute=require('./routes/teacherGetWithdrawRequest');
 const withdrawResposeByTeach=require('./routes/withdrawRespose');
 const getResult=require('./routes/result');
 const getCurrentSemester=require('./routes/current_semester')
+const getLibrary=require('./routes/library');
 
 app.use('/authentication',getUserRoute);
 app.use('/getCourse',getCourseRoute);
@@ -41,6 +42,7 @@ app.use('/getWithdraw',getWithdrawRequestRoute);
 app.use('/withdraw',withdrawResposeByTeach);
 app.use('/result',getResult);
 app.use('/getCurrent',getCurrentSemester)
-app.listen(3000,()=>{
-    console.log(`Server is running at ${3000}`)
+app.use('/library',getLibrary);
+app.listen(8080,()=>{
+    console.log(`Server is running at ${8080}`)
 })

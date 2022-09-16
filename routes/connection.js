@@ -4,7 +4,8 @@ var con=mysql.createConnection({
     user:"root",
     password:"",
     database:"cms_database",
-    multipleStatements:true
+    multipleStatements:true,
+    dateStrings:true,
 }
 );
 module.exports=con;
